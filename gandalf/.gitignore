@@ -1,0 +1,6 @@
+# Ignore .pyc files in all subfolders
+**/*.pyc
+
+# Ignore files in log and report directories
+log/
+report/

@@ -1,0 +1,4 @@
+# Specific config for dircache test cases.
+binddn: cn=root
+password: secret
+ldapPort: 389

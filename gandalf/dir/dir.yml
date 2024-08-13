@@ -1,0 +1,4 @@
+# Specific config for dirmaster test cases.
+binddn: cn=root
+password: secret-lab-sur-password
+ldapPort: 6006

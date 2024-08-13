@@ -1,0 +1,158 @@
+sysCheckUsr: cloud-user
+sysCheckPwd: 
+loadAverageThreshold: 10            # Load average for past 1 min (the 1st of 3 load average number from 'top' or 'uptime')
+
+# Host & process uptime Thresholds.
+hostUpTimeHourThreshold: 24
+mxProcessUpTimeHourThreshold: 1
+
+# Disk usage Thresholds.
+diskUsageThreshold: 85              # Threshold is a %
+
+# Memory Thresholds.
+memoryUsageThreshold: 90            # Threshold is a % 
+swapUsageThreshold: 10              # Threshold is a % 
+
+# Network Thresholds.
+establishedThreshold: 500
+timeWaitThreshold: 500
+closeWaitThreshold: 500
+
+# Swap in / out Thresholds.
+swapSiThreshold: 10
+swapSoThreshold: 10
+
+# Queue Thresholds.
+mxQueueRootDir: ~imail/queue/deferred/
+mxQueueThreshold: 100
+
+
+# Mx Stat checking Thresholds.
+fileChecks:
+
+    ~imail/log/imdirserv.stat:
+
+        # StatProvisioningTime(77/146) 2/sec 4 ms [0] 35/0/35 148/0/25
+        StatProvisioningTime:
+            elementPosition: 6
+            elementThreshold: 100
+            alarmOnOverOrUnderThreshold: over       # Set to 'over' or 'under'
+
+        # StatLDAPQueryTime(77/145) 13/sec 1 ms [50] 819/817/2 1050/0/733
+        StatLDAPQueryTime:
+            elementPosition: 6
+            elementThreshold: 100
+            alarmOnOverOrUnderThreshold: over       # Set to 'over' or 'under'
+
+        # StatReplicationTime(77/147) 2/sec 3 ms [0] 16/0/16 60/0/24
+        StatReplicationTime:
+            elementPosition: 6
+            elementThreshold: 100
+            alarmOnOverOrUnderThreshold: over       # Set to 'over' or 'under'
+
+    ~imail/log/imdircacheserv.stat:
+
+        # StatProvisioningTime(77/146) 2/sec 4 ms [0] 35/0/35 148/0/25
+        StatProvisioningTime:
+            elementPosition: 6
+            elementThreshold: 100
+            alarmOnOverOrUnderThreshold: over       # Set to 'over' or 'under'
+
+        # StatLDAPQueryTime(77/145) 13/sec 1 ms [50] 819/817/2 1050/0/733
+        StatLDAPQueryTime:
+            elementPosition: 6
+            elementThreshold: 100
+            alarmOnOverOrUnderThreshold: over       # Set to 'over' or 'under'
+
+        # StatReplicationTime(77/147) 2/sec 3 ms [0] 16/0/16 60/0/24
+        StatReplicationTime:
+            elementPosition: 6
+            elementThreshold: 100
+            alarmOnOverOrUnderThreshold: over       # Set to 'over' or 'under'
+
+    ~imail/log/mta.stat:
+
+        # 20201215 093343033-0500 cmx-torfep001 mta 15686;StatMSSCreateMessageTime(77/564) 0/sec 0 ms [1000] 0/0/0 0/0/0
+        StatMSSCreateMessageTime:
+            elementPosition: 7
+            elementThreshold: 300
+            alarmOnOverOrUnderThreshold: over       # Set to 'over' or 'under'
+
+    ~imail/log/popserv.stat:
+
+        # StatMSSPopList(77/572) 4/sec 69 ms [0] 800/0/800 55515/1/3359
+        StatMSSPopList:
+            elementPosition: 6
+            elementThreshold: 100
+            alarmOnOverOrUnderThreshold: over       # Set to 'over' or 'under'
+
+        # StatPopGetMsgs(77/527) 281/sec 1 ms [0] 50745/0/50745 60560/0/3517
+        StatPopGetMsgs:
+            elementPosition: 6
+            elementThreshold: 100
+            alarmOnOverOrUnderThreshold: over       # Set to 'over' or 'under'
+
+        # StatPopPassCommand(77/524) 4/sec 27 ms [0] 823/0/823 22291/0/713
+        StatPopPassCommand:
+            elementPosition: 6
+            elementThreshold: 100
+            alarmOnOverOrUnderThreshold: over       # Set to 'over' or 'under'
+
+        # StatMosOperationTime(77/556) 4/sec 7 ms [0] 829/0/829 6312/2/511
+        StatMosOperationTime:
+            elementPosition: 6
+            elementThreshold: 100
+            alarmOnOverOrUnderThreshold: over       # Set to 'over' or 'under'
+
+    ~imail/log/imapserv.stat:
+
+        # StatMSSRetrMsg(77/571) 108/sec 53 ms [0] 19616/0/19616 1045188/1/7891
+        StatMSSRetrMsg:
+            elementPosition: 6
+            elementThreshold: 100
+            alarmOnOverOrUnderThreshold: over       # Set to 'over' or 'under'
+
+        # StatMosOperationTime(77/556) 50/sec 31 ms [0] 9177/0/9177 285667/0/7190
+        StatMosOperationTime:
+            elementPosition: 6
+            elementThreshold: 100
+            alarmOnOverOrUnderThreshold: over       # Set to 'over' or 'under'
+
+        # StatMSSObjAcquireTime(77/562) 289/sec 0 ms [0] 52067/0/52067 1/0/1  
+        StatMSSObjAcquireTime:
+            elementPosition: 6
+            elementThreshold: 100
+            alarmOnOverOrUnderThreshold: over       # Set to 'over' or 'under'
+
+    ~imail/log/mss.stat:
+
+        # StatMsCreateMessage(77/186) 13/sec 137 ms [0] 2502/0/2502 343947/10/7727
+        StatMsCreateMessage:
+            elementPosition: 6
+            elementThreshold: 300
+            alarmOnOverOrUnderThreshold: over       # Set to 'over' or 'under'
+
+        # StatMsLoad(77/182) 24/sec 13 ms [0] 4440/0/4440 61475/2/761
+        StatMsLoad:
+            elementPosition: 6
+            elementThreshold: 100
+            alarmOnOverOrUnderThreshold: over       # Set to 'over' or 'under'
+
+        # StatS3OperationTime(77/560) 275/sec 48 ms [0] 49646/0/49646 2409524/1/9027
+        StatS3OperationTime:
+            elementPosition: 6
+            elementThreshold: 100
+            alarmOnOverOrUnderThreshold: over       # Set to 'over' or 'under'
+
+        # StatMosOperationTime(77/556) 57/sec 9 ms [0] 10329/0/10329 97568/0/7130 
+        StatMosOperationTime:
+            elementPosition: 6
+            elementThreshold: 100
+            alarmOnOverOrUnderThreshold: over       # Set to 'over' or 'under'
+
+        # StatMssCassandraGetSliceWithSliceRange(77/433) 13/sec 3 ms [0] 834/0/834
+        StatMssCassandraGetSliceWithSliceRange:
+            elementPosition: 6
+            elementThreshold: 100
+            alarmOnOverOrUnderThreshold: over       # Set to 'over' or 'under'
+

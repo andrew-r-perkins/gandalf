@@ -1,0 +1,4 @@
+ptoolsUsr: root
+ptoolsPwd: 
+ptoolsDir: /opt/imail/platformtools/
+imailProfilePath: /opt/imail/.profile

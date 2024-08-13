@@ -1,0 +1,271 @@
+# 
+# 'testGroup' contains sub-groups of tests (eg. 'smtp', 'pop', etc) that can be run.
+# Each sub-group contains test cases (eg. 'smtp' has test cases 'Send_Small_Message.py' and 'Send_Large_Message.py').
+# Each test case contains the following attributes:
+#
+#   'run'    - This can be 'y' or 'n'. It determines if automated_testing.py will run or skip that test case..
+#
+#   'config' - This is a test case specific config file that can be used for that test case. For most test cases this can point to an empty file.
+#
+#   'hosts'  - OPTIONAL but is needed for most test cases. If present, the specific test script will be executed with the --host switch. This
+#              determins which hosts the test script will be run against. Eg 'smtp(all)' means run against all smpt hosts as configured in
+#              the 'hosts' entry detailed below the 'testGroup' entry.
+#
+
+testGroup:
+    syscheck:
+        Host_Checks.py:
+            run: n
+            config: syscheck.yml
+            hosts: syscheck(all)
+        Mx_Checks.py:
+            run: n
+            config: syscheck.yml
+            hosts: syscheck(all)
+    affmgr:
+        Cluster_Status.py:
+            run: n
+            config: affmgr.yml
+            hosts: affmgr(all)
+        Constraint_List.py:
+            run: n
+            config: affmgr.yml
+            hosts: affmgr(all)
+        Resource_Show.py:
+            run: n
+            config: affmgr.yml
+            hosts: affmgr(all)
+    imcmds:
+        Imdbcontrol_Commands.py:
+            run: n
+            config: imcmds.yml
+            hosts: imcmds(all)
+        Imldapsh_Commands.py:
+            run: n
+            config: imcmds.yml
+            hosts: imcmds(all)
+    ptools:
+        Platform_Tools_Commands.py:
+            run: y
+            config: ptools.yml
+            hosts: ptoolhost(all)
+    dir:
+        Search.py:
+            run: y
+            config: dir.yml
+            hosts: dir(all)
+        Add_Mod_Delete_Acc.py:
+            run: y
+            config: dir.yml
+            hosts: dir(all)
+        Search_Cache.py:
+            run: n
+            config: cache.yml
+            hosts: cache(all)
+        Add_Mod_Delete_Acc_Cache.py:
+            run: n
+            config: cache.yml
+            hosts: cache(all)
+    mxos:
+        Create_Delete_Account.py:
+            run: y
+            config: mxos.yml
+            hosts: mxos(all)
+        Get_Base_Info.py:
+            run: y
+            config: mxos.yml
+            hosts: mxos(all)
+        Get_Credentials.py:
+            run: y
+            config: mxos.yml
+            hosts: mxos(all)
+        Update_Status.py:
+            run: y
+            config: mxos.yml
+            hosts: mxos(all)
+        List_Folders.py:
+            run: y
+            config: mxos.yml
+            hosts: mxos(all)
+        Message_List.py:
+            run: y
+            config: mxos.yml
+            hosts: mxos(all)
+        Verify_Msgs_In_Folders.py:
+            run: y
+            config: mxos.yml
+            hosts: mxos(all)
+    smtp:
+        Send_Small_Message.py:
+            run: y
+            config: smtp.yml
+            hosts: smtp(all)
+        Send_Large_Message.py:
+            run: y
+            config: smtp.yml
+            hosts: smtp(all)
+    pop:
+        Server_Welcome.py:
+            run: y
+            config: pop.yml
+            hosts: pop(all)
+        Inbox_Statistics.py:
+            run: y
+            config: pop.yml
+            hosts: pop(all)
+        List_Messages.py:
+            run: y
+            config: pop.yml
+            hosts: pop(all)
+        Send_Message.py:
+            run: y
+            config: pop.yml
+            hosts: pop(all)
+        Send_Message_Attach.py:
+            run: y
+            config: pop.yml
+            hosts: pop(all)
+        Get_Uidl.py:
+            run: y
+            config: pop.yml
+            hosts: pop(all)
+        Retrieve_First_Message.py:
+            run: y
+            config: pop.yml
+            hosts: pop(all)
+        Delete_Messages.py:
+            run: y
+            config: pop.yml
+            hosts: pop(all)
+    imap:
+        List_Folders.py:
+            run: y
+            config: imap.yml
+            hosts: imap(all)
+        Get_Quota.py:
+            run: y
+            config: imap.yml
+            hosts: imap(all)
+        Append_Message.py:
+            run: y
+            config: imap.yml
+            hosts: imap(all)
+        Fetch_Message_Parts.py:
+            run: y
+            config: imap.yml
+            hosts: imap(all)
+        Create_Folders.py:
+            run: y
+            config: imap.yml
+            hosts: imap(all)
+        Rename_Folders.py:
+            run: y
+            config: imap.yml
+            hosts: imap(all)
+        Copy_Folder_Content.py:
+            run: y
+            config: imap.yml
+            hosts: imap(all)
+        Message_Search.py:
+            run: y
+            config: imap.yml
+            hosts: imap(all)
+        Mark_Message_Read_Unread.py:
+            run: y
+            config: imap.yml
+            hosts: imap(all)
+        Delete_Message.py:
+            run: y
+            config: imap.yml
+            hosts: imap(all)
+    cassm:
+        Ring_Status.py:
+            run: n
+            config: cassm.yml
+            hosts: cassm(all)
+        Meta_Keyspaces.py:
+            run: n
+            config: cassm.yml
+            hosts: cassm(all)
+        Take_Snapshot.py:
+            run: n
+            config: cassm.yml
+            hosts: cassm(all)
+
+# Hosts contains grouping of hosts. Each group can have one or more entries. 
+# Enter hostname and/or ips one per line
+hosts:
+    pop:
+        mtl42vmxfeplab01-srv
+        #mtl42vmxfeplab02-srv
+    imap:
+        mtl42vmxfeplab01-srv
+        #mtl42vmxfeplab02-srv
+    mxos:
+        mtl42vmxdirlab01-srv
+        #mtl42vmxdirlab02-srv
+    smtp:
+        mtl42vmxfeplab01-srv
+        #mtl42vmxfeplab02-srv
+    mss:
+        mtl42vmxmsslab01-srv
+    dir:
+        mtl42vmxdirlab01-srv
+        #mtl42vmxdirlab02-srv
+    cache:
+        <hostname>
+    affmgr:
+        <hostname>
+    imcmds:
+        <hostname>
+    ptoolhost:
+        mtl42vmxdirlab01-srv
+        #mtl42vmxdirlab02-srv
+    cassm:
+        <hostname>
+    syscheck:
+        <hostname>
+
+popPort: 110
+popPortSSL: 995
+popSSL: No
+imapPort: 143
+imapPortSSL: 993
+imapSSL: NO
+smtpPort: 25
+smtpPortSSL: 465
+smtpSSL: NO
+mxosPort: 8081
+mxosPortSSL: 8443
+mxosSSL: No
+cassmPort: 9042
+cassmKS: KeyspaceMetadata
+ptoolsEncrypt: No
+
+# Account setting used to create test users
+# curl -sk -X PUT --data "password=abcd1234&cosId=default&LdapMailboxExistsReturnError=true&messageStoreHost=bellbizlabcluster01" https://localhost:8443/mxos/mailbox/v2/andy13@mx.internal
+# For test accounts, add any attribute from mOS mailbox create API that are needed for the account.
+# Eg. To create the account that will allow incoming messages of 5000KB, add 'maxReceiveMessageSizeKB: 5000'
+testAccounts:
+    1:
+        username: gandalf01
+        domain: lab.bellglobal.com
+        password: qwe123!
+        passwordType: clear
+        messageStore: clusterlab
+        cosId: default
+        maxStorageSizeKB: 50000
+        maxReceiveMessageSizeKB: 5000
+    2:
+        username: gandalf02
+        domain: lab.bellglobal.com
+        password: qwe123!
+        passwordType: clear
+        messageStore: clusterlab
+        cosId: default
+
+# Sleep interval.
+# Sometimes in a test a sleep is needed to allow previous transactions
+# to complete before processing the next command. Where a sleep is needed
+# it is recommended to use this configurable sleep interval.
+sleepIntervalSec: 30

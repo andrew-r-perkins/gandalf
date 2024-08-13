@@ -1,0 +1,3 @@
+cassmUsr: root
+cassmPwd: password
+cassmDir: /opt/imail1/cassandra/bin/

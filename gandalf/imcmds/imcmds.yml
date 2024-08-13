@@ -1,0 +1,4 @@
+imcmdsUsr: root
+imcmdsPwd: password
+imcmdsDir: /opt/imail/
+imcmdsMboxId: 99999
